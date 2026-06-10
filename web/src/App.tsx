@@ -1,7 +1,9 @@
-import { Button } from '@/components/ui/button'
-import { useState } from 'react'
+import { createBrowserRouter } from 'react-router'
+import { RouterProvider } from 'react-router/dom'
+import { Landing } from './pages/Landing'
 
 export default function App() {
-  const [count, setCount] = useState(0)
-  return <Button onClick={() => setCount(count + 1)}>{count}</Button>
+  return <RouterProvider router={router} />
 }
+
+const router = createBrowserRouter([{ path: '/', Component: Landing }])
