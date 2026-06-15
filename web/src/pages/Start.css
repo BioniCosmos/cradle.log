@@ -1,0 +1,26 @@
+@keyframes orb-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 oklch(0.553 0.195 38 / 0.25);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 28px 6px oklch(0.553 0.195 38 / 0.18);
+  }
+}
+
+@keyframes ripple {
+  from {
+    opacity: 0.55;
+  }
+  to {
+    transform: scale(5);
+    opacity: 0;
+  }
+}
+
+@keyframes wave {
+  to {
+    transform: translateX(-50%);
+  }
+}

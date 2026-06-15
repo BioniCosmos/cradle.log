@@ -1,3 +1,4 @@
+import Logo from '@/components/Logo'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { ArrowRight } from 'lucide-react'
@@ -7,16 +8,7 @@ export function Landing() {
   return (
     <div className="min-h-dvh antialiased">
       <div className="mx-auto max-w-300 px-5.5 md:px-10">
-        <Link
-          to="/"
-          className="flex items-center gap-2.5 pt-7 font-heading text-2xl tracking-tight"
-        >
-          <span
-            className="size-5 rounded-full bg-[radial-gradient(circle_at_35%_35%,oklch(0.72_0.105_46),oklch(0.625_0.135_42)_70%)]"
-            aria-hidden="true"
-          />
-          <div>Cradle.log</div>
-        </Link>
+        <Logo className="pt-7 text-2xl" />
         <div className="pt-20">
           <div className="font-mono text-xs tracking-widest text-muted-foreground uppercase">
             ⸺ A personal log for your body, spirit and soul
@@ -34,7 +26,7 @@ export function Landing() {
             you can look back along.
           </p>
           <Link
-            to="/journal"
+            to="/start"
             className={cn(
               buttonVariants({ size: 'lg' }),
               'mt-8 mb-14 rounded-full px-4 py-6 text-base',
