@@ -168,12 +168,12 @@ async fn query_journals(
 async fn update_journal(
     State(state): State<Arc<AppState>>,
     Path(id): Path<i64>,
-    Json(payload): Json<JournalUpdateParams>,
+    Json(params): Json<JournalUpdateParams>,
 ) -> StatusCode {
     match query!(
         "UPDATE diseases SET diseases = COALESCE($1, diseases), symptoms = COALESCE($2, symptoms) WHERE id = $3",
-        payload.diseases.as_deref(),
-        payload.symptoms.as_deref(),
+        params.diseases.as_deref(),
+        params.symptoms.as_deref(),
         id,
     )
     .execute(&state.pool)
