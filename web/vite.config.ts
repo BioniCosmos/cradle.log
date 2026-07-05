@@ -1,16 +1,17 @@
-import babel from '@rolldown/plugin-babel'
+import { sveltekit } from '@sveltejs/kit/vite'
 import tailwindcss from '@tailwindcss/vite'
-import react, { reactCompilerPreset } from '@vitejs/plugin-react'
-import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    react(),
-    babel({ presets: [reactCompilerPreset()] }),
     tailwindcss(),
+    sveltekit({
+      compilerOptions: {
+        // Force runes mode for the project, except for libraries. Can be removed in svelte 6.
+        runes: ({ filename }) =>
+          filename.split(/[/\\]/).includes('node_modules') ? undefined : true,
+      },
+    }),
   ],
-  resolve: { alias: { '@': resolve(__dirname, './src') } },
-  server: { proxy: { '/api': 'http://127.0.0.1:3000' } },
+  server: { proxy: { '/api': 'http://localhost:3000' } },
 })
