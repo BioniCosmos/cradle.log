@@ -4,7 +4,7 @@ export default defineConfig({
   semi: false,
   singleQuote: true,
   sortImports: {
-    internalPattern: ['~/', '@/', '#', '$lib/'],
+    internalPattern: ['~/', '@/', '#'],
     newlinesBetween: false,
     sortSideEffects: true,
   },

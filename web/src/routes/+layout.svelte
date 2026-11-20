@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from '$app/state'
-  import Logo from '$lib/components/Logo.svelte'
-  import { Button } from '$lib/components/ui/button'
+  import Logo from '#lib/components/Logo.svelte'
+  import { Button } from '#lib/components/ui/button/index.ts'
   import './layout.css'
 
   const { children } = $props()

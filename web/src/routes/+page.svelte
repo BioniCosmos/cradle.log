@@ -1,7 +1,7 @@
 <script lang="ts">
   import { ArrowRight } from '@lucide/svelte'
-  import Logo from '$lib/components/Logo.svelte'
-  import { Button } from '$lib/components/ui/button'
+  import Logo from '#lib/components/Logo.svelte'
+  import { Button } from '#lib/components/ui/button/index.ts'
 
   const features = [
     {
