@@ -2,6 +2,19 @@ import ky from 'ky'
 
 const client = ky.create({ prefix: '/api' })
 
+export type Log = {
+  time: string
+  mood: number | null
+  sleepHours: number | null
+  sleepQuality: number | null
+  behaviors: string[]
+  disease?: string
+  symptoms?: string
+  pain?: number | null
+  medication?: string
+  notes: string
+}
+
 export interface Disease {
   id: number
   diseases: string[]
@@ -12,6 +25,15 @@ export interface Disease {
 export interface JournalUpdateParams {
   diseases?: string[]
   symptoms?: string[]
+}
+
+export function createLog(log: Log) {
+  return client.post('/log', {
+    json: {
+      ...log,
+      time: Temporal.PlainDateTime.from(log.time).toZonedDateTime(Temporal.Now.timeZoneId()),
+    },
+  })
 }
 
 export function createJournal(journal: string) {

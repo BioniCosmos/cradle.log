@@ -1,10 +1,11 @@
 <script lang="ts">
   import { goto } from '$app/navigation'
   import { SendHorizontal } from '@lucide/svelte'
-  import { createJournal } from '$lib/api'
-  import Logo from '$lib/components/Logo.svelte'
-  import { Button } from '$lib/components/ui/button'
-  import Wave from '$lib/components/Wave.svelte'
+  import { createJournal } from '#lib/api.ts'
+  import Logo from '#lib/components/Logo.svelte'
+  import { Button } from '#lib/components/ui/button/index.ts'
+  import Wave from '#lib/components/Wave.svelte'
+  import RecordDrawer from './RecordDrawer.svelte'
   import './page.css'
 
   const prompt = 'How do you feeling today?'
@@ -56,8 +57,11 @@
       name="journal"
       class="field-sizing-content max-h-[60dvh] grow resize-none outline-none"
       bind:value={journal}></textarea>
-    <Button size="icon-lg" class="self-end" onclick={create}>
-      <SendHorizontal class="size-5" />
-    </Button>
+    <div class="flex gap-1">
+      <RecordDrawer />
+      <Button size="icon-lg" onclick={create}>
+        <SendHorizontal class="size-5" />
+      </Button>
+    </div>
   </div>
 </div>
